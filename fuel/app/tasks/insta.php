@@ -40,9 +40,10 @@ class Insta
 	 *
 	 * @return string
 	 */
-	public static function get($q)
+	public static function get()
 	{
-        $api_url = "http://twitter.com/search.json?include_entities=t&rpp=30&result_type=mixed&q=".urlencode($q);
+        $api_url = "http://twitter.com/search.json?include_entities=t&rpp=30&result_type=mixed&q="
+            . urlencode($_SERVER['INSTA_QUERY'])
 
         $f = file_get_contents($api_url);
         
