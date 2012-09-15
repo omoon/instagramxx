@@ -42,14 +42,14 @@ class Insta
 	 */
 	public static function get($q)
 	{
-        $api_url = "http://twitter.com/search.json?include_entities=t&rpp=30&result_type=mixed&q="
+        echo $api_url = "http://twitter.com/search.json?include_entities=t&rpp=30&result_type=mixed&q="
             . urlencode($q);
 
         $f = file_get_contents($api_url);
         
         //$f = '["http://instagr.am/p/PlB_MoFlb-//media/?size=t", "http://instagr.am/p/PlAUn0oyeR//media/?size=t"]';
         //
-        //echo $f;
+        echo $f;
         $new_data = json_decode($f);
         $tweets = array();
         foreach ($new_data->results as $tweet) {
