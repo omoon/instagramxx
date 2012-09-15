@@ -46,9 +46,9 @@ class Insta
 
         $f = file_get_contents($api_url);
         
-        $f = '["http://instagr.am/p/PlB_MoFlb-//media/?size=t", "http://instagr.am/p/PlAUn0oyeR//media/?size=t"]';
-        
-        echo $f;
+        //$f = '["http://instagr.am/p/PlB_MoFlb-//media/?size=t", "http://instagr.am/p/PlAUn0oyeR//media/?size=t"]';
+        //
+        //echo $f;
         $new_data = json_decode($f);
         $tweets = array();
         foreach ($new_data->results as $tweet) {
