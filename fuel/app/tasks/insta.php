@@ -42,7 +42,7 @@ class Insta
 	 */
 	public static function get($q)
 	{
-        echo $api_url = "http://twitter.com/search.json?include_entities=t&rpp=30&result_type=mixed&q="
+        echo $api_url = "http://twitter.com/search.json?include_entities=t&rpp=50&result_type=mixed&q="
             . urlencode($q);
 
         $f = file_get_contents($api_url);

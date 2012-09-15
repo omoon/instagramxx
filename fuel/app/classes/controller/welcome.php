@@ -33,7 +33,6 @@ class Controller_Welcome extends Controller
         }
 
         $data['tweets'] = $tweets;
-        
 		return Response::forge(View::forge('welcome/index', $data));
 	}
 
