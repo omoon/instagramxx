@@ -25,8 +25,12 @@ class Controller_Welcome extends Controller
         $f = file_get_contents(APPPATH . "logs/data.txt");
 
         $json = json_decode($f);
-        foreach ($tweets as $tweet) {
-            $tweets[] = $tweet;
+        foreach ($json->results as $tweet) {
+            if (isset($tweet->entities->urls[0])) {
+                $instagram_url = $tweet->entities->urls[0]->expanded_url;
+                $thumbnail_url = $instagram_url . "/media/?size=t";
+                $tweets[$instagram_url] = $thumbnail_url;
+            }
         }
 
         $data['tweets'] = $tweets;
