@@ -47,6 +47,8 @@ class Insta
 
         $f = file_get_contents($api_url);
 
+        $filedir = APPPATH . 'logs/';
+        $filename = 'data.txt';
         \File::update($filedir, $filename, $f);
         
         //$f = '["http://instagr.am/p/PlB_MoFlb-//media/?size=t", "http://instagr.am/p/PlAUn0oyeR//media/?size=t"]';
