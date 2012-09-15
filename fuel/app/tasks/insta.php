@@ -46,44 +46,46 @@ class Insta
             . urlencode($q);
 
         $f = file_get_contents($api_url);
+
+        \File::update($filedir, $filename, $f);
         
         //$f = '["http://instagr.am/p/PlB_MoFlb-//media/?size=t", "http://instagr.am/p/PlAUn0oyeR//media/?size=t"]';
         //
         echo $f;
-        $new_data = json_decode($f);
-        $tweets = array();
-        foreach ($new_data->results as $tweet) {
-            $instagram_url = $tweet->entities->urls[0]->expanded_url;
-            $thumbnail_url = $instagram_url . "/media/?size=t";
-            $tweets[$instagram_url] = $thumbnail_url;
-        }
-
-        print_r($tweets);
-
-        $filedir = APPPATH . 'logs/';
-        $filename = 'data.txt';
-
-        //try {
-        //    \File::get($filedir.$filename);
-
-        //} catch (Exception $e) {
-        //    \File::create($filedir, $filename, true);
-
-        //}
-        //$data = array();
-
-        //try {
-            $data = \File::read($filedir, $filename, true);
-        //} catch (Exception $e) {
-
+        //$new_data = json_decode($f);
+        //$tweets = array();
+        //foreach ($new_data->results as $tweet) {
+        //    $instagram_url = $tweet->entities->urls[0]->expanded_url;
+        //    $thumbnail_url = $instagram_url . "/media/?size=t";
+        //    $tweets[$instagram_url] = $thumbnail_url;
         //}
 
-        $old_tweets = json_decode($data);
-        foreach ($old_tweets as $instagram_url => $thumbnail_url) {
-            $tweets[$instagram_url] = $thumbnail_url;
-        }
+        //print_r($tweets);
 
-        \File::update($filedir, $filename, json_encode($tweets));
+        //$filedir = APPPATH . 'logs/';
+        //$filename = 'data.txt';
+
+        ////try {
+        ////    \File::get($filedir.$filename);
+
+        ////} catch (Exception $e) {
+        ////    \File::create($filedir, $filename, true);
+
+        ////}
+        ////$data = array();
+
+        ////try {
+        //    $data = \File::read($filedir, $filename, true);
+        ////} catch (Exception $e) {
+
+        ////}
+
+        //$old_tweets = json_decode($data);
+        //foreach ($old_tweets as $instagram_url => $thumbnail_url) {
+        //    $tweets[$instagram_url] = $thumbnail_url;
+        //}
+
+        //\File::update($filedir, $filename, json_encode($tweets));
 
 	}
 
