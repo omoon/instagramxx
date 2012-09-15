@@ -45,7 +45,7 @@
 <?php
 
 foreach ($tweets as $tweet) {
-    echo "<img src=\"{$tweet}\" />"
+    echo "<img src=\"{$tweet}\" />";
 }
 
 ?>
