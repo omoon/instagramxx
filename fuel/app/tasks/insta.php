@@ -60,7 +60,7 @@ class Insta
 
         print_r($tweets);
 
-        $filedir = DOCROOT . 'fuel/app/logs/';
+        $filedir = APPPATH . 'logs/';
         $filename = 'data.txt';
 
         //try {

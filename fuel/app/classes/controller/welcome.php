@@ -22,13 +22,11 @@ class Controller_Welcome extends Controller
 	{
         ini_set('user_agent', 'User-Agent: xxx');
         $tweets = array();
-        $f = file_get_contents("http://twitter.com/search.json?include_entities=t&rpp=30&result_type=mixed&q=".urlencode("麺 instagr.am"));
+        $f = file_get_contents(APPPATH . "logs/data.txt");
 
         $json = json_decode($f);
-        foreach ($json->results as $tweet) {
-            $instagram_url = $tweet->entities->urls[0]->expanded_url;
-            $thumbnail_url = $instagram_url . "/media/?size=t";
-            $tweets[$instagram_url] = $thumbnail_url;
+        foreach ($tweets as $tweet) {
+            $tweets[] = $tweet;
         }
 
         $data['tweets'] = $tweets;
