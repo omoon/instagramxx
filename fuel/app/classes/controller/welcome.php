@@ -20,10 +20,9 @@ class Controller_Welcome extends Controller
 	 */
 	public function action_index()
 	{
-        ini_set('user_agent', 'User-Agent: xxx');
-        $tweets = array();
         $f = file_get_contents(APPPATH . "logs/data.txt");
 
+        $tweets = array();
         $json = json_decode($f);
         foreach ($json->results as $tweet) {
             if (isset($tweet->entities->urls[0])) {
