@@ -42,9 +42,9 @@ class Insta
 	 */
 	public static function get($q)
 	{
-        $q .= ' instagr.am';
+        echo $q .= '+AND+instagr.am';
         echo $api_url = "http://search.twitter.com/search.json?include_entities=t&rpp=50&result_type=mixed&q="
-            . urlencode($q);
+            . rawurlencode($q);
 
         $f = file_get_contents($api_url);
 
