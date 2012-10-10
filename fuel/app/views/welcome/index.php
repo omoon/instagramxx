@@ -35,7 +35,7 @@
 <script type="text/javascript">
 
   var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-35459911-1']);
+  _gaq.push(['_setAccount', '<?php echo Input::server('GTRID'); ?>']);
   _gaq.push(['_trackPageview']);
 
   (function() {
