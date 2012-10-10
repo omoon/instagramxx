@@ -7,7 +7,7 @@
 	<style>
 		#logo{
 			display: block;
-            background-image: url(http://omoon.tap.vmware/instagramen/public/assets/img/logo.png?1347674373);
+            background-image: url(<?php echo Asset::get_file('logo.png', 'img'); ?>);
 			width: 108px;
 			height: 45px;
 			position: relative;
