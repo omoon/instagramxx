@@ -44,8 +44,22 @@
 
 <?php
 
-foreach ($tweets as $key => $tweet) {
-    echo "<a href=\"$key\" target=\"_blank\"><img src=\"{$tweet}\" /></a>";
+$cnt = 1;
+foreach ($tweets as $tweet) {
+    if (($cnt % 4) == 1) {
+        echo "<div class=\"row thumbnails\">";
+    }
+
+    echo "<div class=\"span3\"><div class=\"thumbnail\" style=\"height:300px\"><a alt=\"{$tweet->text}\" href=\"{$tweet->entities->urls[0]->expanded_url}\" target=\"_blank\"><img src=\"{$tweet->entities->urls[0]->expanded_url}/media?size=m\" /></a><p>{$tweet->text}</p></div></div>";
+
+    if (($cnt % 4) == 0) {
+        echo "</div>\n";
+    }
+    $cnt++;
+}
+
+if (($cnt % 4) != 1) {
+    echo "</div>";
 }
 
 ?>
