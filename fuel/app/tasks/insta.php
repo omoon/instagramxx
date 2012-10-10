@@ -43,18 +43,26 @@ class Insta
 	public static function get($q)
 	{
         echo $q .= '+AND+instagr.am';
-        echo $api_url = "http://search.twitter.com/search.json?include_entities=t&rpp=50&result_type=mixed&q="
+        echo $api_url =
+            "http://search.twitter.com/search.json?include_entities=t&since_id="
+          . \Model_Tweet::getMaxIdStr()
+          . "&rpp=50&result_type=mixed&q="
             . rawurlencode($q);
 
-        $f = file_get_contents($api_url);
+        $json_data = file_get_contents($api_url);
 
-        $filedir = APPPATH . 'logs/';
-        $filename = 'data.txt';
-        \File::update($filedir, $filename, $f);
+        \Model_Tweet::addTweets($json_data);
+
+
+        //$tweet = Model_Tweet::forge()->set(array('expanded_url' => 'http://xxx.xx.xx', 'text' => 'aaatest'))->save();
+
+        //$filedir = APPPATH . 'logs/';
+        //$filename = 'data.txt';
+        //\File::update($filedir, $filename, $f);
         
         //$f = '["http://instagr.am/p/PlB_MoFlb-//media/?size=t", "http://instagr.am/p/PlAUn0oyeR//media/?size=t"]';
         //
-        echo $f;
+        //echo $f;
         //$new_data = json_decode($f);
         //$tweets = array();
         //foreach ($new_data->results as $tweet) {
@@ -92,6 +100,14 @@ class Insta
 
 	}
 
+	public static function test()
+	{
+
+        \Model_Tweet::getMaxIdStr();
+
+
+
+    }
 }
 
 /* End of file tasks/robots.php */

@@ -63,7 +63,7 @@ foreach ($tweets as $tweet) {
         echo "<div class=\"row thumbnails\">";
     }
 
-    echo "<div class=\"span3\"><div class=\"thumbnail\" style=\"height:300px\"><a alt=\"{$tweet->text}\" href=\"{$tweet->entities->urls[0]->expanded_url}\" target=\"_blank\"><img src=\"{$tweet->entities->urls[0]->expanded_url}/media?size=m\" /></a><p>{$tweet->text}</p></div></div>";
+    echo "<div class=\"span3\"><div class=\"thumbnail\" style=\"height:300px\"><a href=\"{$tweet->expanded_url}\" target=\"_blank\"><img src=\"{$tweet->expanded_url}/media?size=m\" /></a><p>{$tweet->text}</p></div></div>";
 
     if (($cnt % 4) == 0) {
         echo "</div>\n";
