@@ -24,6 +24,7 @@ class Controller_Welcome extends Controller
 
         $tweets = array();
         $json = json_decode($f);
+
         foreach ($json->results as $tweet) {
             if (isset($tweet->entities->urls[0])) {
                 $instagram_url = $tweet->entities->urls[0]->expanded_url;
