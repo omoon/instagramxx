@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Instagramen</title>
+	<title><?php echo Input::server('APP_NAME'); ?></title>
 	<?php echo Asset::css('bootstrap.css'); ?>
 	<style>
 		#logo{
